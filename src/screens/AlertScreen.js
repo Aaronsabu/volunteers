@@ -10,7 +10,7 @@ const AlertScreen = ({ navigation}) => {
          <Foundation name="alert" size={50} color="red" />
         </View>
         <Button title="I AM READY" onPress={() => navigation.navigate('Location')} />
-            <Button title="I am not availibe"/>
+          <Button title="Not availible" />  
     </View>
 };
 
