@@ -17,11 +17,11 @@ const AlertScreen = ({ navigation}) => {
        <TextA title="Are you willing to help?" size={24} weight="bold"/>
      
         <ButtonA 
-        height={120} width={250} top={80} 
+        style={styles.Button}
         title="I am Ready"
         onPress={() => navigation.navigate('Location')}/>
         <ButtonA 
-        height={120} width={250} top={60} 
+        style={styles.Button}
         title="Not Available" 
         onPress={() => navigation.navigate('Location')}/>
 
@@ -43,6 +43,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginVertical:30
+    },
+    Button:{
+        height:120,
+        width:250,
+        marginTop:70,
+        backgroundColor:"red",
+        fontSize: 30,
+        borderRadius:10
     }
 });
 
