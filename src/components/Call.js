@@ -20,22 +20,21 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container} >
-    <Text>Woman</Text>
-    <View style={{flexDirection: 'row'}}>
-      <TextInput style={styles.input}  />
-      <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>
-    </View>
-    <Text>Volunteer 2</Text>
-    <View style={{flexDirection: 'row'}}>
-      <TextInput style={styles.input}  />
-      <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>           
-    </View>
-    <Text>Police</Text>
-    <View style={{flexDirection: 'row'}}>
-      <TextInput style={styles.input}  />
-      <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>
-  
-    </View>
+        <Text>Woman</Text>
+        <View style={{flexDirection: 'row'}}>
+          <TextInput style={styles.input}  />
+          <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>
+        </View>
+        <Text>Volunteer 2</Text>
+        <View style={{flexDirection: 'row'}}>
+          <TextInput style={styles.input}  />
+          <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>           
+        </View>
+        <Text>Police</Text>
+        <View style={{flexDirection: 'row'}}>
+          <TextInput style={styles.input}  />
+          <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>
+        </View>
       </View>
     );
   }
