@@ -35,21 +35,21 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     img: {
-        height: 60,
-        width: 110,
-        marginTop:20
+        height: "12%",
+        width: "36%",
+        marginTop:"3%"
     },
     view: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginVertical:30
+        marginVertical:"6%"
     },
     Button:{
-        height:120,
-        width:250,
-        marginTop:70,
+        height:100,
+        width:280,
+        marginTop:"15%",
         backgroundColor:"red",
-        fontSize: 30,
+        fontSize: 40,
         borderRadius:10
     }
 });
