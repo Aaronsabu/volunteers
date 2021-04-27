@@ -1,36 +1,38 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button, Image} from 'react-native';
-import { Foundation } from '@expo/vector-icons';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-const AlertScreen = ({ navigation}) => {
+const DefaultScreen = ({ navigation }) => {
     return <View style={styles.container}>
-        <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
-        <View style={styles.view}>
-         <Text style={styles.text}>ALERT</Text>
-         <Foundation name="alert" size={50} color="red" />
-        </View>
-        <Button title="Share Location" onPress={() => navigation.navigate('Location')} />
+        <Ionicons name="person" size={26} color="black" />
+        <Image style={styles.img} source={require('../img/pinkpal.png')} />
+        <Text style={styles.txt}>Thank you for being a PinkPal volunteer.</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Alert')}>
+            <Text style={styles.Buttontext}>Press</Text>
+        </TouchableOpacity>
     </View>
 };
 
 const styles = StyleSheet.create({
     container: {
-        marginTop:10,
-        alignItems: 'center',
-        justifyContent: 'center'
+        marginLeft: 8,
+        marginTop: 5
     },
     img: {
-        height: 50,
-        width: 100
+        marginLeft: 25,
+        marginTop: 15
     },
-    view: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    text: {
-        fontSize: 50,
+    txt: {
         color: 'red',
+        fontSize: 18,
+        textAlign: 'center'
+    },
+    Buttontext: {
+        color: 'red',
+        fontSize: 18,
+        textAlign: 'center',
+        marginTop: 30
     }
 });
 
-export default AlertScreen;
+export default DefaultScreen;
