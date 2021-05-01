@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, Linking, Platform, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+ 
 export default class App extends Component {
 
   makeCall = () => {
@@ -20,21 +21,25 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container} >
-        <Text>Woman</Text>
-        <View style={{flexDirection: 'row'}}>
-          <TextInput style={styles.input}  />
-          <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>
-        </View>
-        <Text>Volunteer 2</Text>
-        <View style={{flexDirection: 'row'}}>
-          <TextInput style={styles.input}  />
-          <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>           
-        </View>
-        <Text>Police</Text>
-        <View style={{flexDirection: 'row'}}>
-          <TextInput style={styles.input}  />
-          <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" size={40} color="red" /></TouchableOpacity>
-        </View>
+    <Text style={styles.txt}>Woman</Text>
+    <View style={{flexDirection: 'row'}}>
+      <Ionicons name="person" style={styles.icon} />
+      <TextInput style={styles.input}  />
+      <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" style={styles.icon} /></TouchableOpacity>
+    </View>
+    <Text style={styles.txt}>Volunteer 2</Text>
+    <View style={{flexDirection: 'row'}}>
+      <Ionicons name="person" style={styles.icon} /> 
+      <TextInput style={styles.input}  />
+      <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" style={styles.icon} /></TouchableOpacity>           
+    </View>
+    <Text style={styles.txt}>Police</Text>
+    <View style={{flexDirection: 'row'}}>
+      <Ionicons name="person" style={styles.icon} />
+      <TextInput style={styles.input}  />
+      <TouchableOpacity onPress={this.makeCall}><Ionicons name="ios-call" style={styles.icon} /></TouchableOpacity>
+  
+    </View>
       </View>
     );
   }
@@ -42,18 +47,26 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    marginTop: 350
+    marginTop: 100
+  },
+  txt: {
+    marginLeft: 45
+  },
+  icon: {
+    fontSize: 44,
+    color: "red"
   },
   input: {
     height: 50,
     width: 250,
     borderRadius: 5,
     marginBottom:8,
+    marginRight: 8,
     paddingLeft: 15,
     paddingRight: 15,
     alignItems: "stretch",
-    borderWidth: 2,
-    borderColor: "blue"
+    borderWidth: 1,
+    borderColor: "black"
 }
 });
 
