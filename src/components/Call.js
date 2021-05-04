@@ -50,11 +50,12 @@ const styles = StyleSheet.create({
     marginTop: 100
   },
   txt: {
-    marginLeft: 45
+    marginLeft: 45,
+   color: "#d41568"
   },
   icon: {
     fontSize: 44,
-    color: "red"
+    color: "#d41568"
   },
   input: {
     height: 50,
