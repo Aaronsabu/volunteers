@@ -2,18 +2,31 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, Button} from 'react-native';
 import { Foundation } from '@expo/vector-icons';
 
+import ButtonA from "../Components/ButtonA";
+import TextA from "../Components/TextA";
+
 const AlertScreen = ({ navigation}) => {
-    return (
-        <View style={styles.container}>
-         <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
-         <View style={styles.view}>
-           <Text style={styles.text}>ALERT</Text>
-           <Foundation name="alert" size={60} color="red" />
-         </View>
-         <Button style={styles.button} title="I'm Ready" onPress={() => navigation.navigate('Location')} />
-         <Button title="Not Available" />
+  
+    return <View style={styles.container}>
+        <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
+        <View style={styles.view}>
+        <TextA title="ALERT" size={50} />
+         <Foundation name="alert" size={70} color="red" />
         </View>
-    );
+    
+       <TextA title="Someone near you needs help!!" size={24} weight="bold"/>
+       <TextA title="Are you willing to help?" size={24} weight="bold"/>
+     
+        <ButtonA 
+        style={styles.Button}
+        title="I am Ready"
+        onPress={() => navigation.navigate('Location')}/>
+        <ButtonA 
+        style={styles.Button}
+        title="Not Available" 
+        onPress={() => navigation.navigate('Location')}/>
+
+        </View>
 };
 
 const styles = StyleSheet.create({
@@ -23,24 +36,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     img: {
-        height: 50,
-        width: 100
+        height: 60,
+        width: 110,
+        marginTop:20
     },
     view: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop:10,
-        marginBottom: 10
+        marginVertical:30
     },
-    text: {
-        fontSize: 50,
-        color: 'red',
-        marginRight:10
-    },
-    button: {
-        width: 100,
-        height: 100,
-        padding: 20
+    Button:{
+        height:120,
+        width:250,
+        marginTop:70,
+        backgroundColor:"#d41568",
+        fontSize: 30,
+        borderRadius:10
     }
 });
 
