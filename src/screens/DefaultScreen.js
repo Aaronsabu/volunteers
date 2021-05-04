@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     txt: {
-        color: 'red',
+        color: '#d41568',
         fontSize: 18,
         textAlign: 'center'
     },
     Buttontext: {
-        color: 'red',
+        color: '#d41568',
         fontSize: 18,
         textAlign: 'center'
     }
