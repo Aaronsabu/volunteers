@@ -7,7 +7,7 @@ const ButtonA = ({title,onPress,height,width,top,bottom})=>{
     <Pressable onPress={onPress}>
 
     <View style={{
-    backgroundColor: "red",
+    backgroundColor: "#d41568",
     height:height,
     width:width,
     flexDirection: "row",
