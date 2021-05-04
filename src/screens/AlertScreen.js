@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Button} from 'react-native';
 import { Foundation } from '@expo/vector-icons';
 
 import ButtonA from "../Components/ButtonA";
 import TextA from "../Components/TextA";
 
 const AlertScreen = ({ navigation}) => {
+  
     return <View style={styles.container}>
         <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
         <View style={styles.view}>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
         height:120,
         width:250,
         marginTop:70,
-        backgroundColor:"red",
+        backgroundColor:"#d41568",
         fontSize: 30,
         borderRadius:10
     }
