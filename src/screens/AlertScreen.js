@@ -2,8 +2,8 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, Button} from 'react-native';
 import { Foundation } from '@expo/vector-icons';
 
-import ButtonA from "../Components/ButtonA";
-import TextA from "../Components/TextA";
+import ButtonA from "../components/ButtonA";
+import TextA from "../components/TextA";
 
 const AlertScreen = ({ navigation}) => {
   
