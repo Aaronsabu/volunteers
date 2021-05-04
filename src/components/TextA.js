@@ -5,7 +5,7 @@ const TextA = ({title,size,Weight})=>{
 
     return (
     <Text style={{
-        color: 'red',
+        color: '#d41568',
         fontSize: size,
         fontWeight: Weight
     }}>
