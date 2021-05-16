@@ -2,17 +2,29 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, View, Linking, Platform, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+var data;
+
+const dbRef = firebase.database().ref("users/002");
+dbRef.on("value", snapshot => {
+  if (snapshot.exists()) {
+    data = snapshot.val();
+  } else {
+   console.log("No data available");
+  }
+})
+
  
 export default class App extends Component {
 
   makeCall = () => {
 
     let phoneNumber = '';
+    let num = data.number;
 
     if (Platform.OS === 'android') {
-      phoneNumber = 'tel:${1234567890}';
+      phoneNumber = `tel:${num}`;
     } else {
-      phoneNumber = 'telprompt:${1234567890}';
+      phoneNumber = `telprompt:${num}`;
     }
 
     Linking.openURL(phoneNumber);
