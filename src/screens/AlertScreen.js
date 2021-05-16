@@ -24,7 +24,7 @@ const AlertScreen = ({ navigation}) => {
         <ButtonA 
         style={styles.Button}
         title="Not Available" 
-        onPress={() => navigation.navigate('Location')}/>
+        onPress={() => navigation.navigate('Default')}/>
 
         </View>
 };
