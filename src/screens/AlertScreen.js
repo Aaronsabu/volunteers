@@ -1,17 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Button} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import { Foundation } from '@expo/vector-icons';
-
-import ButtonA from "../Components/ButtonA";
-import TextA from "../Components/TextA";
+import ButtonA from "../components/ButtonA";
+import TextA from "../components/TextA";
 
 const AlertScreen = ({ navigation}) => {
-  
     return <View style={styles.container}>
         <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
         <View style={styles.view}>
         <TextA title="ALERT" size={50} />
-         <Foundation name="alert" size={70} color="red" />
+         <Foundation name="alert" size={70} color="#d41568" />
         </View>
     
        <TextA title="Someone near you needs help!!" size={24} weight="bold"/>
