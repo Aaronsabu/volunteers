@@ -34,5 +34,3 @@ const styles = StyleSheet.create({
 });
 
 export default Map;
-
-//Api key: AIzaSyCclQ7ik-N4zxrkx9GkcXwqzIc8ccGTJsI
