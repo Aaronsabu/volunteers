@@ -17,7 +17,7 @@ const RegisterScreen = () => {
   return (
     <View style={styles.container}>
       <Text h3 style={styles.txt}>
-        align: center;
+        text-align: center;
         Create a PinkPal-Volunteer account
       </Text>
       <View style={styles.inputContainer}>
