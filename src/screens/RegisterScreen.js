@@ -17,7 +17,7 @@ const RegisterScreen = () => {
   return (
     <View style={styles.container}>
       <Text h3 style={styles.txt}>
-        text-align: center;
+        {text-align: center}
         Create a PinkPal-Volunteer account
       </Text>
       <View style={styles.inputContainer}>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     marginBottom: 50,
-    
+    margintop: 30,
   },
   button: {
     width: 200,
