@@ -1,18 +1,22 @@
-import React from 'react';
+//import '../_MockLocation';
+import React, {useEffect} from 'react';
 import {Text, View, StyleSheet, Image} from 'react-native';
 import Call from '../components/Call';
-import Map from '../components/Map';
-import useLocation from '../hooks/useLocation';
+import Tracker from '../components/Tracker';
+import Trackee from '../components/Trackee';
+//import useLocation from '../hooks/useLocation';
 
-const LocationScreen = ({ isFocused}) => {
-    const [errorMsg] = useLocation(isFocused);
+const LocationScreen = () => {
+    //const [errorMsg] = useLocation(isFocused);
+
 
     return (
        <View style={styles.container}>
          <Image style={styles.img} source={require('../img/pinkpal.png')} /> 
-         <Map />
-         {errorMsg ? <Text>Please enable location services</Text> : null}
+          
+         <Tracker />
          <Call />
+         <Trackee />
        </View>
     );
 };
@@ -30,3 +34,5 @@ const styles = StyleSheet.create({
 });
 
 export default LocationScreen;
+
+
