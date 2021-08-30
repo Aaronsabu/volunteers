@@ -82,7 +82,7 @@ class Tracker extends React.Component {
             followUserLocation
             loadingEnabled
             ref={c => (this.mapView = c)}
-            region={this.state.latitude ? this.getMapRegion() : null}
+            region={ this.getMapRegion() }
           >
             <Marker.Animated
               ref={marker => {
