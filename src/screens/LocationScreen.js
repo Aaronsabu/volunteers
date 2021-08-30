@@ -21,9 +21,16 @@ const LocationScreen = () => {
     );
 };
 
+LocationScreen.navigationOptions = () => {
+    return {
+      headerShown: false,
+    };
+  };
+
 const styles = StyleSheet.create({
     container: {
-        marginTop:5,
+        paddingTop:20,
+        flex: 1,
         alignItems: 'center',
         
     },
