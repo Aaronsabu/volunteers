@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         
         //width: "100%",
         //aspectRatio: 9 / 10,  
-    
+    flex:1,
         marginTop:50,
         marginBottom:50,
         alignItems: 'center',
