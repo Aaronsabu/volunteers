@@ -59,8 +59,9 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container:{
+   flex:1,
     marginLeft:10,
-    marginTop: 10,
+    marginTop: 70,
     marginBottom:20,
     marginRight:10
     
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
     color: "red"
   },
   input: {
+    
     fontSize:25,
   marginTop:10,
     height: 50,
@@ -89,5 +91,6 @@ const styles = StyleSheet.create({
     borderColor: "black"
 }
 });
+
 
 
