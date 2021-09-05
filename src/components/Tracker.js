@@ -1,9 +1,9 @@
-
-  import React from 'react';
+import React from 'react';
 import { StyleSheet, View, Platform, SafeAreaView } from 'react-native';
 import MapView, { Marker, AnimatedRegion } from 'react-native-maps';
 import * as Location from 'expo-location';
 import PubNubReact from 'pubnub-react';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const LATITUDE = 10.2315;
 const LONGITUDE = 76.4088;
@@ -100,16 +100,18 @@ class Tracker extends React.Component {
 
 const styles = StyleSheet.create({
   map: {
-  flex:2,
-    height: 250,
-    borderWidth: 185
+ // flex:2,
+ // marginBottom:50,
+    //height: 200,
+    borderWidth:wp('45%'),
+    marginLeft:10,
+    height: hp('45%'), // 70% of height device screen
   },
-  //container: {
- // flex:1,
-    //marginTop:4,
+  
    
     
-},
+
 });
 
 export default Tracker;
+ 
