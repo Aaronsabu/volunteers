@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet, View, Linking, Platform, TouchableOpacity, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 //var data;
 
@@ -59,14 +60,17 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container:{
-   flex:1,
-    marginLeft:10,
-    marginTop: 70,
-    marginBottom:20,
+    flex:0.8,
+    height: hp('30%'), 
+    //width: wp('95%') ,  
+     marginLeft:10,
+   marginTop: 70,
+   // marginBottom:20,
     marginRight:10
     
   },
   txt: {
+    
     marginLeft: 45
   },
   icon: {
@@ -77,13 +81,11 @@ const styles = StyleSheet.create({
   input: {
     
     fontSize:25,
-  marginTop:10,
+ //marginTop:10,
     height: 50,
     width: 260,
     borderRadius: 5,
-    marginBottom:10,
-    //marginRight:10,
-    //marginLeft:10,
+   // marginBottom:10,
     paddingLeft: 15,
     paddingRight: 15,
     alignItems: "stretch",
@@ -93,4 +95,6 @@ const styles = StyleSheet.create({
 });
 
 
+
+   
 
