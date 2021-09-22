@@ -13,7 +13,7 @@ const firebaseConfig = {
   measurementId: "G-E8NWCK68EH"
 };
 
-var firebaseConfigActive = {
+const firebaseConfigActive = {
   apiKey: "AIzaSyA5EQukxkUZvhoDNn_gSlrY_fSf3BWmz5o",
   authDomain: "active-volunteers.firebaseapp.com",
   databaseURL: "https://active-volunteers-default-rtdb.firebaseio.com",
@@ -24,27 +24,12 @@ var firebaseConfigActive = {
   measurementId: "G-E182W6CFJK"
 };
 
-let app;
+let app = firebase.initializeApp(firebaseConfig);
 
-if (!firebase.apps.length) {
-  app = firebase.initializeApp(firebaseConfig);
-} else {
-  app = firebase.app();
-}
-
-
-var app2;
-
-if (!firebase.apps.length) {
-  app2 = firebase.initializeApp(firebaseConfigActive);
-} 
+let app2 = firebase.initializeApp(firebaseConfigActive, 'secondary');
 
 export const database2 = firebase.database(app2);
 
 export const db = app.firestore();
 
 export const auth = firebase.auth();
-
-export const userCred= (cred)=>{
-  firebase.database().ref('/users/001').set(cred).then(() => console.log(cred));
-};
