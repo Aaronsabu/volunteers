@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import { View, Image, StyleSheet, Platform } from 'react-native';
 import {Input, Button} from 'react-native-elements';
 import { auth } from '../firebase/config';
@@ -13,7 +13,7 @@ const LoginScreen = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        navigate("Default");
+        authUser.reload().then(navigate("Default"))
         console.log("Success");
       }
     });
