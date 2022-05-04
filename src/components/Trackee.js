@@ -1,9 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Platform, SafeAreaView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import MapView, { Marker, AnimatedRegion, PROVIDER_GOOGLE} from 'react-native-maps';
 import * as Location from 'expo-location';
+import * as TaskManager from 'expo-task-manager';   
 import PubNubReact from 'pubnub-react';
 
+const LOCATION_TASK_NAME = "background-location-task";
+
+let lat;
+let long;
 
 const LATITUDE = 9.4927;
 const LONGITUDE = 76.7084;
@@ -11,6 +16,7 @@ const LATITUDE_DELTA = 0.01;
 const LONGITUDE_DELTA = 0.01;
 
 class Trackee extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -35,36 +41,56 @@ class Trackee extends React.Component {
   }
 
   // code to receive messages sent in a channel
-  async componentDidMount() {
-    (async () => {
-      await Location.requestForegroundPermissionsAsync();
-      {Location.hasServicesEnabledAsync ? this.watchLocation() :
-        this.setState({errorMsg: 'Permission to access location was denied'})}
-      } 
-    )();
-  };
+  
+  _getLocationAsync = async () => {
 
-  async watchLocation() {
+    await Location.startLocationUpdatesAsync(LOCATION_TASK_NAME, {
+      accuracy: Location.Accuracy.BestForNavigation,
+      distanceInterval: 10,
+      timeInterval: 10000
+    });
      
     this.watchID = await Location.watchPositionAsync(
       {
         accuracy: Location.Accuracy.BestForNavigation,
-        timeInterval: 1000,
+        timeInterval: 10000,
         distanceInterval: 10
       },
       position => {
         const { latitude, longitude } = position.coords;
-        console.log("Position is" +position.coords.latitude);
+        console.log("Position is " +position.coords.latitude);
 
 
         this.setState({
           latitude,
           longitude
         });
-        console.log(position);
+        console.log("Foreground pos ",position);
       }
-    )
+    );
+
+    this.setState({
+      latitude: lat,
+      longitude: long
+      }); 
   };
+
+    async componentDidMount() {
+      // Asking for device location permission
+      (async () => {
+        const locf = await Location.requestForegroundPermissionsAsync();
+        const locb = await Location.requestBackgroundPermissionsAsync();
+
+        if( locf.status !== 'granded' && locb.status !== 'granded') {
+          this.setState({errorMsg: 'Permission to access location was denied'})
+          console.log("Location not accessed");    
+        } else {
+          this._getLocationAsync()
+        }
+      } 
+      )();
+    };
+
 
   componentDidUpdate() {
       this.pubnub.publish({
@@ -88,7 +114,13 @@ class Trackee extends React.Component {
     longitudeDelta: LONGITUDE_DELTA
   });
 
+
   render() {
+
+    // const user = firebase.auth().currentUser;
+    // let userId = user.uid;
+    // let userRef = database2.ref('users/location');
+    // userRef.child('volunteer').update({'latitude': this.state.latitude, 'longitude': this.state.longitude})
     return (
       //<SafeAreaView style={{ flex: 1 }}>
         <View>
@@ -102,17 +134,30 @@ class Trackee extends React.Component {
             region={this.getMapRegion()}
           >
             <Marker.Animated
-              coordinate={this.state}
+              coordinate={this.state.coordinate}
             />
           </MapView>
         </View>
       //</SafeAreaView>
     );
   }
-}
+};
+
+TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  if (data) {
+    const { locations } = data;
+    let lat = locations[0].coords.latitude;
+    let long = locations[0].coords.longitude;
+    console.log("latitude & Longitude ", lat,long);
+  }
+});
 
 const styles = StyleSheet.create({
-  map: {
+ map: {
     height: 1,
     borderWidth: 1
   },
