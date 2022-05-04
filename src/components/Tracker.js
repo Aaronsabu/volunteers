@@ -3,6 +3,7 @@ import { StyleSheet, View, Platform, SafeAreaView } from 'react-native';
 import MapView, { Marker, AnimatedRegion } from 'react-native-maps';
 import * as Location from 'expo-location';
 import PubNubReact from 'pubnub-react';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const LATITUDE = 10.2315;
 const LONGITUDE = 76.4088;
@@ -74,7 +75,7 @@ class Tracker extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 2 }}>
         <View style={styles.container}>
           <MapView
             style={styles.map}
@@ -82,7 +83,7 @@ class Tracker extends React.Component {
             followUserLocation
             loadingEnabled
             ref={c => (this.mapView = c)}
-            region={ this.getMapRegion() }
+            region={this.getMapRegion()}
           >
             <Marker.Animated
               ref={marker => {
@@ -97,10 +98,13 @@ class Tracker extends React.Component {
   }
 }
 
+
+
 const styles = StyleSheet.create({
   map: {
-    height: 250,
-    borderWidth: 170
+    flex:1,
+    borderWidth:wp('48%'),
+    height: hp('45%'),
   },
 });
 
